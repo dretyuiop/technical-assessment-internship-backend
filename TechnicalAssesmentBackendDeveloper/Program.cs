@@ -23,10 +23,18 @@
         fruitManager.AddItem(new Fruit("pear"));
         fruitManager.AddItem(new Fruit("lemon"));
         fruitManager.PrintAllItems();
-        
+
         // Part Four (Bonus): Implement an interface IItemManager and make ItemManager implement it.
         // TODO: Implement this part four.
     }
+}
+
+public interface IItemManager
+{
+    public void AddItem(string item);
+    public void PrintAllItems();
+    public void RemoveItem(string item);
+    public void ClearAllItems();
 }
 
 public class Fruit(string fruitName)
@@ -39,7 +47,7 @@ public class Fruit(string fruitName)
     }
 }
 
-public class ItemManager
+public class ItemManager  : IItemManager
 {
     private List<string> items = [];
 
